@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+issueTrackerURL = "https://github.com/Apollounknowndev/lithostitched/issues"
+license = "MIT"
+[[mixins]]
+config = "lithostitched.mixins.json"
+[[mixins]]
+config = "lithostitched.neoforge.mixins.json"
+[[mods]]
+    modId = "lithostitched"
+    version = "${file.jarVersion}"
+    displayName = "Lithostitched"
+    logoFile = "pack.png"
+    authors = "Apollo, SmellyModder, ChoiceTheorem"
+    description = '''Library mod with new configurability and compatibility enhancements for worldgen.'''
+
+[[dependencies.lithostitched]]
+    modId = "neoforge"
+    mandatory = true
+    versionRange = "[1,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.lithostitched]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.20.2,1.20.4)"
+    ordering = "NONE"
+    side = "BOTH"

@@ -1,0 +1,74 @@
+plugins {
+	id 'idea'
+	id 'maven-publish'
+	id 'net.neoforged.gradle.userdev' version '7.0.57'
+}
+
+base {
+	archivesName = "${mod_id}-neoforge-${minecraft_version}"
+}
+
+minecraft.accessTransformers.file file('src/main/resources/META-INF/accesstransformer.cfg')
+
+runs {
+	configureEach {
+		systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+
+        modSource project.sourceSets.main
+		modSource project(":common").sourceSets.main
+	}
+	client {
+		
+	}
+	server {
+		
+	}
+	data {
+		workingDirectory project.file('run')
+		programArguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+	}
+}
+
+
+sourceSets.main.resources.srcDir 'src/generated/resources'
+
+dependencies {
+	implementation "net.neoforged:neoforge:${neo_version}"
+	compileOnly project(":common")
+	annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT:processor")
+}
+
+tasks.withType(JavaCompile).configureEach {
+	source(project(":common").sourceSets.main.allSource)
+}
+
+tasks.withType(Javadoc).configureEach {
+	source(project(":common").sourceSets.main.allJava)
+}
+
+tasks.named("sourcesJar", Jar) {
+	from(project(":common").sourceSets.main.allSource)
+}
+
+processResources {
+	from project(":common").sourceSets.main.resources
+}
+
+tasks.withType('reobfJar'){
+	
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			artifactId base.archivesName.get()
+			from components.java
+		}
+	}
+	repositories {
+		maven {
+			url "file://" + System.getenv("local_maven")
+		}
+	}
+}
