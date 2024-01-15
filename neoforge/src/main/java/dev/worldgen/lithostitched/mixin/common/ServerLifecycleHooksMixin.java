@@ -3,7 +3,7 @@ package dev.worldgen.lithostitched.mixin.common;
 import dev.worldgen.lithostitched.registry.LithostitchedRegistries;
 import dev.worldgen.lithostitched.worldgen.modifier.AbstractBiomeModifier;
 import net.minecraft.server.MinecraftServer;
-import net.minecraftforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.BiomeModifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Mixin(net.minecraftforge.server.ServerLifecycleHooks.class)
+@Mixin(net.neoforged.neoforge.server.ServerLifecycleHooks.class)
 public class ServerLifecycleHooksMixin {
     @Unique
     private static MinecraftServer serverInstance;

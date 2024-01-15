@@ -1,9 +1,13 @@
 package dev.worldgen.lithostitched;
 
 import dev.worldgen.lithostitched.registry.LithostitchedBuiltInRegistries;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+//import net.neoforged.fml.config.ModConfig;
+import net.neoforged.bus.api.IEventBus;
+//import net.neoforged.fml.ModLoadingContext;
+//import net.minecraft.core.registries.BuiltInRegistries;
+//import net.minecraft.core.registries.Registries;
+import net.neoforged.fml.common.Mod;
+
 
 /**
  * Mod class for Lithostitched on Forge.
@@ -11,10 +15,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(LithostitchedCommon.MOD_ID)
 public final class LithostitchedNeoforge {
 
-	public LithostitchedNeoforge() {
+	public LithostitchedNeoforge(IEventBus modEventBus) {
 		LithostitchedCommon.init();
-		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-		LithostitchedBuiltInRegistries.init(bus);
+		LithostitchedBuiltInRegistries.init(modEventBus);
 	}
 
 }

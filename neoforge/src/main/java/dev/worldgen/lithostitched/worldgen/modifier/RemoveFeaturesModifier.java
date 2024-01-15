@@ -7,7 +7,7 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
+import net.neoforged.neoforge.common.world.BiomeModifiers;
 
 import java.util.Collections;
 
@@ -28,7 +28,7 @@ public class RemoveFeaturesModifier extends AbstractBiomeModifier {
     private final GenerationStep.Decoration step;
 
     public RemoveFeaturesModifier(ModifierPredicate predicate, HolderSet<Biome> biomes, HolderSet<PlacedFeature> features, GenerationStep.Decoration step) {
-        super(predicate, new ForgeBiomeModifiers.RemoveFeaturesBiomeModifier(biomes, features, Collections.singleton(step)));
+        super(predicate, new BiomeModifiers.RemoveFeaturesBiomeModifier(biomes, features, Collections.singleton(step)));
         this.biomes = biomes;
         this.features = features;
         this.step = step;

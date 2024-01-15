@@ -2,7 +2,7 @@ package dev.worldgen.lithostitched.worldgen.modifier;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import dev.worldgen.lithostitched.registry.LithostitchedForgeBiomeModifiers;
+import dev.worldgen.lithostitched.registry.LithostitchedNeoforgeBiomeModifiers;
 import dev.worldgen.lithostitched.worldgen.modifier.predicate.ModifierPredicate;
 import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
@@ -20,7 +20,7 @@ public class ReplaceClimateModifier extends AbstractBiomeModifier {
     private final HolderSet<Biome> biomes;
     private final Biome.ClimateSettings climateSettings;
     public ReplaceClimateModifier(ModifierPredicate predicate, HolderSet<Biome> biomes, Biome.ClimateSettings climateSettings) {
-        super(predicate, new LithostitchedForgeBiomeModifiers.ReplaceClimateBiomeModifier(biomes, climateSettings));
+        super(predicate, new LithostitchedNeoforgeBiomeModifiers.ReplaceClimateBiomeModifier(biomes, climateSettings));
         this.biomes = biomes;
         this.climateSettings = climateSettings;
     }

@@ -5,17 +5,13 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.worldgen.lithostitched.worldgen.biome.BiomeEffects;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
-import net.minecraft.sounds.Music;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.biome.*;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.BiomeSpecialEffectsBuilder;
-import net.minecraftforge.common.world.ClimateSettingsBuilder;
-import net.minecraftforge.common.world.ModifiableBiomeInfo;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.BiomeSpecialEffectsBuilder;
+import net.neoforged.neoforge.common.world.ClimateSettingsBuilder;
+import net.neoforged.neoforge.common.world.ModifiableBiomeInfo;
 
-import java.util.Optional;
-
-public class LithostitchedForgeBiomeModifiers {
+public class LithostitchedNeoforgeBiomeModifiers {
     public record ReplaceClimateBiomeModifier(HolderSet<Biome> biomes, Biome.ClimateSettings climateSettings) implements BiomeModifier {
         public static final Codec<ReplaceClimateBiomeModifier> CODEC = RecordCodecBuilder.create(builder -> builder.group(
             Biome.LIST_CODEC.fieldOf("biomes").forGetter(ReplaceClimateBiomeModifier::biomes),

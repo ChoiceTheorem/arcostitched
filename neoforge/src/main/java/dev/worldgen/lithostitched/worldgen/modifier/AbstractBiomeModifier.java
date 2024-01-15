@@ -1,7 +1,7 @@
 package dev.worldgen.lithostitched.worldgen.modifier;
 
 import dev.worldgen.lithostitched.worldgen.modifier.predicate.ModifierPredicate;
-import net.minecraftforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.BiomeModifier;
 
 /**
  * An interface for Forge biome modifiers.
@@ -9,17 +9,17 @@ import net.minecraftforge.common.world.BiomeModifier;
  * @author Apollo
  */
 public abstract class AbstractBiomeModifier extends Modifier {
-    private final BiomeModifier forgeBiomeModifier;
-    protected AbstractBiomeModifier(ModifierPredicate predicate, BiomeModifier forgeBiomeModifier) {
+    private final BiomeModifier neoforgeBiomeModifier;
+    protected AbstractBiomeModifier(ModifierPredicate predicate, BiomeModifier neoforgeBiomeModifier) {
         super(predicate, ModifierPhase.NONE);
-        this.forgeBiomeModifier = forgeBiomeModifier;
+        this.neoforgeBiomeModifier = neoforgeBiomeModifier;
     }
 
     /**
-     * Gets a Forge biome modifier equivalent to inject into the Forge biome modifier system.
+     * Gets a Neoforge biome modifier equivalent to inject into the Forge biome modifier system.
      */
-    public BiomeModifier forgeBiomeModifier() {
-        return this.forgeBiomeModifier;
+    public BiomeModifier neoforgeBiomeModifier() {
+        return this.neoforgeBiomeModifier;
     }
 
     @Override

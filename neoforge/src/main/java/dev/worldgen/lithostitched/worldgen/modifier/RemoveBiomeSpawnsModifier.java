@@ -8,7 +8,7 @@ import net.minecraft.core.RegistryCodecs;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
+import net.neoforged.neoforge.common.world.BiomeModifiers;
 
 /**
  * A {@link Modifier} implementation that removes mob spawns from {@link Biome} entries.
@@ -23,7 +23,7 @@ public class RemoveBiomeSpawnsModifier extends AbstractBiomeModifier {
     private final HolderSet<Biome> biomes;
     private final HolderSet<EntityType<?>> mobs;
     protected RemoveBiomeSpawnsModifier(ModifierPredicate predicate, HolderSet<Biome> biomes, HolderSet<EntityType<?>> mobs) {
-        super(predicate, new ForgeBiomeModifiers.RemoveSpawnsBiomeModifier(biomes, mobs));
+        super(predicate, new BiomeModifiers.RemoveSpawnsBiomeModifier(biomes, mobs));
         this.biomes = biomes;
         this.mobs = mobs;
     }

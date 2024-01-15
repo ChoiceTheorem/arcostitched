@@ -7,7 +7,7 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
+import net.neoforged.neoforge.common.world.BiomeModifiers;
 
 /**
  * A {@link Modifier} implementation that adds placed feature entries to {@link Biome} entries in a generation step.
@@ -26,7 +26,7 @@ public class AddFeaturesModifier extends AbstractBiomeModifier {
     private final GenerationStep.Decoration step;
 
     public AddFeaturesModifier(ModifierPredicate predicate, HolderSet<Biome> biomes, HolderSet<PlacedFeature> features, GenerationStep.Decoration step) {
-        super(predicate, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(biomes, features, step));
+        super(predicate, new BiomeModifiers.AddFeaturesBiomeModifier(biomes, features, step));
         this.biomes = biomes;
         this.features = features;
         this.step = step;

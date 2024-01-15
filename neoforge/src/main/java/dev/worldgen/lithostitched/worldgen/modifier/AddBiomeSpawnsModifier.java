@@ -7,7 +7,7 @@ import dev.worldgen.lithostitched.worldgen.modifier.predicate.ModifierPredicate;
 import net.minecraft.core.HolderSet;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings.SpawnerData;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
+import net.neoforged.neoforge.common.world.BiomeModifiers;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class AddBiomeSpawnsModifier extends AbstractBiomeModifier {
     private final HolderSet<Biome> biomes;
     private final List<SpawnerData> biomeSpawns;
     protected AddBiomeSpawnsModifier(ModifierPredicate predicate, HolderSet<Biome> biomes, List<SpawnerData> biomeSpawns) {
-        super(predicate, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(biomes, biomeSpawns));
+        super(predicate, new BiomeModifiers.AddSpawnsBiomeModifier(biomes, biomeSpawns));
         this.biomes = biomes;
         this.biomeSpawns = biomeSpawns;
     }
